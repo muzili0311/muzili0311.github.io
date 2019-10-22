@@ -151,6 +151,76 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-事务与索引" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/22/%E4%BA%8B%E5%8A%A1%E4%B8%8E%E7%B4%A2%E5%BC%95/">事务与索引</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/22/%E4%BA%8B%E5%8A%A1%E4%B8%8E%E7%B4%A2%E5%BC%95/" class="archive-article-date">
+  	<time datetime="2019-10-22T11:36:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>索引语事务<br>数据库优化<br>    数据库优化指的就是通过各种途径提高查询效率，<br>    优化的方式有多种，但其中之一就是为字段添加索引<br>    什么是索引？<br>    相当于为某个字段或者某几个字段添加了目录，提高了查询效率。<br>    索引的分类：<br>    1.普通索引<br>    2.唯一索引<br>        为字段添加位于约束，就同时添加了唯一索引。<br>    3.主键索引<br>        为字段添加主机约束，就是同时添加主键索引。<br>    4.组合索引</p>
+<pre><code>5.全文索引
+
+6.空间索引
+创建索引的方式：
+1.创建表的同时添加索引
+2.alter table
+3.create index</code></pre><p>二。事务<br>几条语句组成一个整体，要么全部执行成功，要么全部失败。<br>其实每条语句多少一条自动提交的事务，<br>关闭事务自动提交<br>第一：要开启事务begin<br>第二：执行语句判断成功不成功，不成功要全部回滚，rollback<br>第三：成功就提交事务。commit<br>其实每条语句都是一条自动提交的事务<br>特点：<br>原子性-事务的语句是不可分割的，要么全部执行成功，要么全部失败。<br>一致性-事务完成前后，数据必须要保持完全一致的状态。<br>隔离性-事务与事务之间，互不影响，相互独立<br>持久性-事务一旦完成，对系统的影响，是永久性的，、<br>事务的隔离级别<br>1.未提交读（read uncotted）<br>2.已提交读(read  committed)<br>3.重复读(repeatable read)<br>4.可串行化(serialirzable)<br>*/<br>#1创建表的同时，添加索引。<br>CREATE TABLE empl (<br>eid INT PRIMARY KEY AUTO_INCREMENT,<br>enam VARCHAR(20) NOT NULL,<br>etel VARCHAR(20) UNIQUE,<br>INDEX(enam) #为enam字段添加普通索引<br>)<br>SHOW INDEX FROM empl;<br>#create index<br>CREATE INDEX index_name ON<br>        table_name(colname[LENGTH])<br>#创建唯一索引<br>CREATE UNIQUE INDEX index_name ON<br>        table_name(colname[LENGTH])—</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/22/%E4%BA%8B%E5%8A%A1%E4%B8%8E%E7%B4%A2%E5%BC%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-MySQL知识点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
